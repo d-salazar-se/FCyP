@@ -1,7 +1,3 @@
-#!/usr/bin/env python2.7
-# -*- coding: utf-8 -*-
-
-#
 # Autoría: [Grupo 2] 10110-G-2
 # Fecha: Segundo Semestre 2016
 #
@@ -30,22 +26,22 @@ def generarCadenaValida(cadena):
 	return listado
 
 
-# Funcion que inserta un "nodo" en el arbol ya estructurado.
+# Funcion que inserta un nodo en el arbol ya estructurado.
 # Entrada:
-#			- list padre, Lista que representa al nodo raiz del arbol.
-#			- str caracter, Caracter nuevo a ingresar, este no puede existir en el arbol.
+#	- list padre, Lista que representa al nodo raiz del arbol.
+#	- str caracter, Caracter nuevo a ingresar, este no puede existir en el arbol.
 # Salida: None
 def insertar(padre, caracter):
 	
 	while padre is not None:
 		if caracter < padre[1]:
-			if padre[0] is None:
+			if padre[0] == None:
 				padre[0] = [None, caracter, None]
 				return
 			else:
 				padre = padre[0]
 		else:
-			if padre[2] is None:
+			if padre[2] == None:
 				padre[2] = [None, caracter, None]
 				return
 			else:
@@ -59,9 +55,9 @@ def obtenerProfundidad(raiz):
 	contador = 0
 	while nivelActual:
 		siguienteNivel = []
-		for n in nivelActual:			
-			if n[0]: siguienteNivel.append(n[0])
-			if n[2]: siguienteNivel.append(n[2])
+		for nodo in nivelActual:			
+			if nodo[0]: siguienteNivel.append(nodo[0])
+			if nodo[2]: siguienteNivel.append(nodo[2])
 		nivelActual = siguienteNivel
 		contador += 1
 
@@ -69,35 +65,38 @@ def obtenerProfundidad(raiz):
 
 # Funcion que recorre y retorna el arbol por niveles desde la raiz hacia las hojas.
 # Entrada:
-# 			- arbol list, Lista de listas con los arboles por nivel.
-# 			- numeroNiveles integer, Entero que representa la profundidad del arbol.
+# 	- arbol list, Lista de listas con los arboles por nivel.
+# 	- numeroNiveles integer, Entero que representa la profundidad del arbol.
 # Salida: list, Lista de listas con los nodos guardados en listas segun su nivel.
 def obtenerNiveles(arbol, numeroNiveles):
 	nivelActual = [arbol]
 	
-	niveles = [[] for x in range(numeroNiveles)]
 	profundidad = 0
+	niveles = []
 	
+	for x in range(numeroNiveles):
+		niveles.append([])
+		
 	while nivelActual:
 		siguienteNivel = []
 
-		for n in nivelActual:
-			if n is None:
+		for nodo in nivelActual:
+			if nodo == None:
 				if profundidad < numeroNiveles:
 					niveles[profundidad+1].append(None)
 					niveles[profundidad+1].append(None)
 				continue
 			
 			
-			niveles[profundidad].append(n[1])
+			niveles[profundidad].append(nodo[1])
 
-			if n[0]:
-				siguienteNivel.append(n[0])
+			if nodo[0]:
+				siguienteNivel.append(nodo[0])
 			else:
 				siguienteNivel.append([None,None,None])
 			
-			if n[2]:
-				siguienteNivel.append(n[2])
+			if nodo[2]:
+				siguienteNivel.append(nodo[2])
 			else:
 				siguienteNivel.append([None,None,None])
 		
@@ -115,10 +114,14 @@ def obtenerNiveles(arbol, numeroNiveles):
 # Salida: list, Lista de listas con los nodos guardados con sus respectivas ramas por nivel.
 def generarMatrizImpresion(arbol):
 
-	ancho 			= 6*(2**(len(arbol)-1))
+	ancho 		= 6*(2**(len(arbol)-1))
 	vistaImpresion 	= []
 
-	vistaImpresion.append(list('|'.center(ancho)))
+	# primera linea, la "rama hacia la raiz"
+	ramita 		= '|'.center(ancho)
+	lineaRamita 	= list(ramita)
+	
+	vistaImpresion.append(lineaRamita)
 
 	for nivel in arbol:
 		linea = ''
@@ -171,30 +174,34 @@ def comprimir(matrizImpresion):
 			for fila in matrizImpresion:
 				del fila[indiceColumna]
 
+def imprimirMatriz(matriz):
+	pass
 
 # Funcion en donde se produce el codigo principal.
 # Entrada: None.
-# Salida: Un booleano que define sise termino correctamente la ejecucion del programa.
+# Salida: - no aplica
 def main():
 	#-----------------------------------
 	# ENTRADA
 	#-----------------------------------
-	cadena = raw_input("Ingrese cadena: ").lower()
+	cadena = raw_input("Ingrese cadena: ")
 
+	#-----------------------------------
+	# PROCESAMIENTO
+	#-----------------------------------
+	cadena = cadena.lower()
 	# Crear una Cadena valida de texto, 
 	# eliminar caracteres invalidos y repetidos
 	cadena = generarCadenaValida(cadena)
 
 	if len(cadena) < 1:
 		print "[ ! ] Debes ingresar al menos una letra."
-		return False
-
-	#-----------------------------------
-	# PROCESAMIENTO
-	#-----------------------------------
+		return
+	
 	# Declarar el inicio del arbol
 	# Hijo Izquierdo = None, Hijo Derecho = None
-	arbol = [None, cadena.pop(0), None]
+	primerCaracter = cadena.pop(0)
+	arbol = [None, primerCaracter, None]
 
 	# insertar en el arbol item a item
 	# segun orden de ingreso
@@ -202,18 +209,18 @@ def main():
 		caracter = cadena.pop(0)
 		insertar(arbol, caracter)
 
-	profundidad = obtenerProfundidad(arbol)
-	arbol 		= obtenerNiveles(arbol, profundidad)
-	arbol 		= generarMatrizImpresion(arbol)
+	profundidad 	= obtenerProfundidad(arbol)
+	nivelesArbol	= obtenerNiveles(arbol, profundidad)
+	arbolConFormato = generarMatrizImpresion(nivelesArbol)
 	
-	comprimir(arbol)
+	comprimir(arbolConFormato)
+	
 	#-----------------------------------
 	# SALIDA
 	#-----------------------------------
 	# Mostrar el arbol con el formato requerido
-	print
-	print "\n".join(["".join(["{}".format(item)for item in fila])for fila in arbol])
+	imprimirMatriz(arbolConFormato)
 
-	return True
+	return
 
 main()
