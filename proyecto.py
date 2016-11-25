@@ -12,8 +12,7 @@ from math import ceil
 
 # FUNCIONES
 
-# Funcion que genera una cadena valida para el arbol:
-# 	sin caracteres repetidos y pertenecientes al alfabeto ingles.
+# Funcion que genera una cadena valida para el arbol, sin caracteres repetidos y pertenecientes al alfabeto ingles.
 # Entrada: str cadena, Cadena de caracteres en base a la cual se genera una cadena "valida"
 # Salida: list listado, Lista con los caracteres que cumplen las dos reglas mencionadas anteriormente.
 def generarCadenaValida(cadena):
