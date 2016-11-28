@@ -173,8 +173,16 @@ def comprimir(matrizImpresion):
 			for fila in matrizImpresion:
 				del fila[indiceColumna]
 
+# Funcion muestra una matriz por pantalla.
+# Entrada: matriz list, Lista de lista con los caracteres en cada casilla.
+# Salida: arbolStr string, La matriz como string guardada con los saltos de linea correspondiente.
 def imprimirMatriz(matriz):
-	pass
+	arbolStr = ""
+	for fila in matriz:
+		for caracter in fila:
+			arbolStr += caracter
+		arbolStr += "\n"
+	return arbolStr
 
 # Funcion en donde se produce el codigo principal.
 # Entrada: None.
@@ -218,7 +226,7 @@ def main():
 	# SALIDA
 	#-----------------------------------
 	# Mostrar el arbol con el formato requerido
-	imprimirMatriz(arbolConFormato)
+	print imprimirMatriz(arbolConFormato)
 
 	return
 
