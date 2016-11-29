@@ -1,9 +1,9 @@
-# Autoría: [Grupo 2] 10110-G-2
+# Autoria: [Grupo 2] 10110-G-2
 # Fecha: Segundo Semestre 2016
 #
 # Objectivo: Dibujar un arbol binario con letras
 # Categoria: Ingenieria Informatica
-# Descripcion: Dibujar un árbol binario con las letras de una secuencia 
+# Descripcion: Dibujar un arbol binario con las letras de una secuencia 
 # 		de caracteres ingresadas desde teclado.
 #
 
