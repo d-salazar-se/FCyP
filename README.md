@@ -6,7 +6,8 @@ Programa que dibuja en la pantalla un árbol binario ordenado basado en una cade
 
 > python 1-G-2_Grupo_2.py
   
-  El programa no requiere de nigun módulo extra para funcionar.
+  Se debe comprobar que se esta trabajando en el mismo directorio donde se encuentra el código.
+  El programa no requiere la instalación de ningún módulo extra para funcionar.
 
   Además en Windows se puede hacer uso del IDLE (Integrated Development Environment) para Python, en cuyo caso basta con abrir el archivo con el editor y seleccionar la opción de correr el código (tecla F5).
 
