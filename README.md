@@ -23,4 +23,4 @@ Programa que dibuja en la pantalla un árbol binario ordenado basado en una cade
 
 Posibles errores/problemas.
 
- - Si se ejecuta el programa haciendo doble click en él directamente el programa se ejecutará correctamente, pero al finalizar la ventana en la que se está ejecutando se cerrará, imposibilitando la apreciación del resultado final, es por esto que se recomienda ejecutar el programa con una ventana de terminal de comandos abierta o en el caso de Windows en el IDLE.
+ - Si se ejecuta el programa directamente haciendo doble click en él, éste se ejecutará correctamente, pero al finalizar la ventana en la que se está ejecutando se cerrará, imposibilitando la apreciación del resultado final, es por esto que se recomienda ejecutar el programa con una ventana de terminal de comandos ya abierta y haciendo uso del comando anteriormente presentado, o en el caso de Windows haciendo uso del IDLE.
