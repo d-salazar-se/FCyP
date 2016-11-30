@@ -19,3 +19,8 @@ Programa que dibuja en la pantalla un árbol binario ordenado basado en una cade
  - No se permiten letras con tilde (éstas se eliminarán)
 
   Una vez ingresada la cadena de caracteres y presionada la tecla Enter se aplicarán las reglas recién mencionadas, si la cadena resultante posee al menos una letra se procederá a crear un árbol binario ordenado, en caso contrario se mostrará un mensaje mostrando el error. Tras ambos casos se procede a terminar la ejecución del programa.
+
+
+Posibles errores/problemas.
+
+ - Si se ejecuta el programa haciendo doble click en él directamente el programa se ejecutará correctamente, pero al finalizar la ventana en la que se está ejecutando se cerrará, imposibilitando la apreciación del resultado final, es por esto que se recomienda ejecutar el programa con una ventana de terminal de comandos abierta o en el caso de Windows en el IDLE.
