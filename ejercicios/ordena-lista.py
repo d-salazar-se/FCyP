@@ -1,5 +1,5 @@
 '''
-
+Dada una lista de enteros, ordenar la lista de menor a mayor.
 '''
 
 lista = [50,4,7,23,321,48,6]
