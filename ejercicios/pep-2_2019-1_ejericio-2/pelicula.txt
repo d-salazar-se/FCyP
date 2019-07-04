@@ -1,0 +1,6 @@
+2019/01/12,07:00:23,juan.fuentes@usach.cl,LIKE
+2019/01/12,13:30:15,felipe.gonzalez@gmail.com,LIKE
+2019/01/12,20:23:23,jorgeaceituno@free.com,DISLIKE
+2019/01/12,21:38:59,alfredo.cisterna@google.cl,LIKE
+2019/01/13,01:05:22,daniel.orellana@bluffovers.com,NONE
+2019/01/13,04:03:48,carlos.zolezzi@bluffovers.com,LIKE
